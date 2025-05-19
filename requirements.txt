@@ -1,0 +1,12 @@
+flask 
+flask_session
+uuid
+sqlite3
+os
+dotenv
+datetime
+google-genai
+google.genai
+requests
+deep_translator
+gtts

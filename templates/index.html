@@ -1,0 +1,145 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hindi Chatbot & News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Chatbot Section -->
+        <div class="col-md-6 p-0 position-relative" style="height: 100vh; border-right: 1px solid #ccc;">
+            
+            <!-- Title Bar (Scoped to Chatbot only) -->
+            <div class="title-bar chatbot-bar d-flex align-items-center justify-content-between px-3 py-2">
+                <!-- Left: Sidebar toggle -->
+                <div class="d-flex align-items-center gap-2">
+                    <button id="sidebarToggle" class="btn btn-sm btn-light">☰</button>
+                </div>
+
+                <!-- Center: Title -->
+                <div class="chatbot-title mx-auto">
+                    <h5 class="mb-0 text-white text-center">🗣️ Multi-Lingual Chat Bot</h5>
+                </div>
+
+                <!-- Right: Language + New Chat -->
+                <div class="d-flex align-items-center gap-2">
+                    <select id="chat-language" class="form-control form-control-sm">
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                        <option value="mr">Marathi</option>
+                        <option value="ta">Tamil</option>
+                        <option value="te">Telugu</option>
+                        <option value="ml">Malayalam</option>
+                        <option value="ur">Urdu</option>
+                        <option value="sa">Sanskrit</option>
+                    </select>
+                    &nbsp&nbsp&nbsp
+                    <a href="{{ url_for('new_chat') }}" class="btn btn-sm btn-warning d-flex align-items-center justify-content-center">
+                        🔄 New Chat
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <h3>💬 Chat History</h3>
+                <ul>
+                    {% for cid in history_ids %}
+                        <li><a href="{{ url_for('load_chat', chat_id=cid) }}">{{ cid[:15] }}...</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ url_for('new_chat') }}"  class="btn btn-sm btn-warning d-flex align-items-center justify-content-center">➕ Start New Chat</a>
+            </div>
+
+            <!-- Chat Container -->
+            <div id="chat-container">
+                <div id="chatbox">
+                    {% for msg in messages %}
+                        <div class="chat-msg {{ msg.role }}">
+                            <div class="chat-bubble">
+                                {% if msg.role == 'assistant' %}
+                                    <span class="chat-role">🤖 Assistant:</span>
+                                    <button class="read-chat-btn" data-message="{{ msg.content | e }}">🔊</button>
+                                {% else %}
+                                    <span class="chat-role">👤 You:</span>
+                                    <button class="read-chat-btn" data-message="{{ msg.content | e }}">🔊</button>
+                                {% endif %}
+                                <div class="chat-text">{{ msg.content }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <form method="POST" action="/chat" id="chat-form" class="chatbot-form">
+                <input type="text" id="user_input" name="user_input" placeholder="Type your message..." value="{{ user_input | default('') }}" required>
+
+                <!-- Hidden field for selected language -->
+                <input type="hidden" name="lang" id="hidden-lang">
+
+                <!-- Mic Button -->
+                <button type="button" id="mic-button" class="mic-btn">🎤</button>
+                
+                <!-- Send Button -->
+                <button class="btn btn-primary">Send</button>
+            </form>
+
+
+
+        </div>
+
+        <!-- News Section -->
+        <div class="col-md-6 p-3" style="height: 100vh; overflow-y: auto;">
+            <!-- News Title Bar -->
+            <div class="news-bar">
+                <h5 class="mb-0">🗞️ Latest News - 📰 ट्रेंडिंग समाचार</h5>
+            </div>
+            <form id="newsForm" class="mb-3">
+                <div class="form-row text-center mb-2 font-weight-bold">
+                    <div class="col">
+                        Language
+                    </div>
+                    <div class="col">
+                        Topic
+                    </div>
+                </div>
+                <div class="form-row mb-2">
+                    <div class="col">
+                        <select name="language" id="language" class="form-control">
+                            {% for code1, lang in languages.items() %}
+                                <option value="{{ code1 }}">{{ lang }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select name="topic" id="topic" class="form-control">
+                            {% for code2, topic in topics.items() %}
+                                <option value="{{ code2 }}">{{ topic }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Get News</button>
+            </form>
+
+            <div id="newsContainer"></div>
+            <!-- News Footer -->
+            <div class="news-footer">
+                <small>❤️ Created with love by Rushikesh, Harshita and Harshey :)</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
