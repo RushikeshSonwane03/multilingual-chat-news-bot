@@ -39,7 +39,7 @@ def fetch_top_news(language='hi', topic=None):
             print("API Error or bad request:", data)
             return []
 
-        articles = data.get("results", [])[:10]  # Fetch top 10 news only
+        articles = data.get("results", [])[:3]  # Fetch top 10 news only
 
         news_list = []
         print("translating")

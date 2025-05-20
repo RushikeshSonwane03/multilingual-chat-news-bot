@@ -21,61 +21,70 @@ A full-stack web application that integrates a Gemini Pro-powered multilingual c
 
 ---
 
+## System Implementation
+
+| System-Implementation | 
+|-----------------------------|
+| ![System-Implementation](assets\images\System-Implementation.jpg) |
+
+
+
 ## 🔄 Working Flow
 
 
 ```text
-+----------------------------+
-|        User Interface       |
-| - Language Selector         |
-| - Chat Input Box + Mic Btn  |
-| - Chat History Panel        |
-| - News Topic Selector       |
-| - News Cards + Voice Btn    |
-+-------------+--------------+
-              |
-              v
-+----------------------------+
-| Frontend JavaScript Logic   |
-| - Voice Input Capture       |
-| - Text Input Submission     |
-| - Fetch Chat & News APIs    |
-| - Play Audio Files          |
-+-------------+--------------+
-              |
-              v
-+----------------------------+
-|        Flask Backend        |
-| - Receive Chat Requests     |
-| - Receive News Requests     |
-| - Receive Voice Playback    |
-| - Session Management        |
-+-------------+--------------+
-       |           |          |
-       |           |          |
-       v           v          v
-+------------+  +-------------+  +------------------+
-| Chat Module|  | News Module |  | Text-to-Speech    |
-| (Gemini AI)|  | (NewsData   |  | Module (gTTS)     |
-|            |  | + Translator)|  |                  |
-+------------+  +-------------+  +------------------+
-       |            |                |
-       |            |                |
-       v            v                v
-+-----------------------------------------------+
-|              External APIs & Services          |
-| - Google Gemini Pro AI                         |
-| - NewsData.io API                              |
-| - Google Translator API (via Deep Translator) |
-| - Google Text-to-Speech (gTTS)                 |
-+-----------------------------------------------+
-              |
-              v
-+----------------------------+
-|     SQLite Database         |
-| - Store Chat History        |
-| - Session & Message Data    |
-+----------------------------+
+                     +-----------------------------+
+                     |        User Interface       |
+                     | - Language Selector         |
+                     | - Chat Input Box + Mic Btn  |
+                     | - Chat History Panel        |
+                     | - News Topic Selector       |
+                     | - News Cards + Voice Btn    |
+                     +-------------+---------------+
+                                   |
+                                   v
+                     +-----------------------------+
+                     | Frontend JavaScript Logic   |
+                     | - Voice Input Capture       |
+                     | - Text Input Submission     |
+                     | - Fetch Chat & News APIs    |
+                     | - Play Audio Files          |
+                     +-------------+---------------+
+                                   |
+                                   v
+                     +-----------------------------+
+                     |        Flask Backend        |
+                     | - Receive Chat Requests     |
+                     | - Receive News Requests     |
+                     | - Receive Voice Playback    |
+                     | - Session Management        | 
+                     +-------------+---------------+
+                     |             |               |
+                     |             |               |
+                     v             v               v
+            +------------+  +--------------+  +-------------------+
+            | Chat Module|  | News Module  |  | Text-to-Speech    |
+            | (Gemini AI)|  | (NewsData    |  | Module (gTTS)     |
+            |            |  | + Translator)|  |                   |
+            +------------+  +--------------+  +-------------------+
+                     |             |               |
+                     +-------------+---------------+
+                                   |
+                                   v 
+              +------------------------------------------------+
+              |              External APIs & Services          |
+              | - Google Gemini Pro AI                         |
+              | - NewsData.io API                              |
+              | - Google Translator API (via Deep Translator)  |
+              | - Google Text-to-Speech (gTTS)                 |
+              +------------------------------------------------+
+                                   |
+                                   v
+                     +-----------------------------+
+                     |     SQLite Database         |
+                     | - Store Chat History        |
+                     | - Session & Message Data    |
+                     +-----------------------------+
 ```
 
 ---
@@ -164,7 +173,10 @@ Open http://localhost:5000 in your browser.
 ---
 
 ## 📷 Screenshots
-![UI Screenshot](link-to-your-screenshot.png)
+
+| User Interface | 
+|-----------------------------|
+| ![UI Screenshot](assets\images\UI.jpg) |
 
 ---
 

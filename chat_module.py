@@ -9,20 +9,29 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 # System instruction
+# system_instruction = (
+#     "You are an AI Chatbot serving as an Assistant to the user. You will take input in multiple languages you will reply in the same language only.Be polite and give concise, to-the-point responses. Langauges are : (English, Hindi, Marathi, Tamil, Telugu, Malayalam, Urdu, Sanskrit)."
+# )
+
 system_instruction = (
-    "You are an AI Chatbot serving as an Assistant to the user. You will take input in multiple languages you will reply in the same language only.Be polite and give concise, to-the-point responses. Langauges are : (English, Hindi, Marathi, Tamil, Telugu, Malayalam, Urdu, Sanskrit)."
+    """
+    You are a helpful multilingual assistant. Always reply in the language the user uses in their question. 
+    If the user asks in Hindi, reply in Hindi. If they use English or any other language, respond in that language.
+    Make sure to complete your response fully. Based on the inputs you generate the length of response, If response has to be long, make it long, else make it of appropriate lenght.
+    """
 )
 
 # Configuration for responses
 config = types.GenerateContentConfig(
     system_instruction=system_instruction,
-    max_output_tokens=600,
+    max_output_tokens=2048,
     top_k=2,
     top_p=0.5,
-    temperature=0.5,
+    temperature=1.0,
     stop_sequences=['\n'],
     seed=42,
 )
+stream=True
 
 # Content history (optional, can be moved to session if needed)
 contents = []
