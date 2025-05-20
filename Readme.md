@@ -176,7 +176,7 @@ Open http://localhost:5000 in your browser.
 
 | User Interface | 
 |-----------------------------|
-| ![UI Screenshot](assets\images\UI.png) |
+| ![UI Screenshot](assets/UI.png) |
 
 ---
 
