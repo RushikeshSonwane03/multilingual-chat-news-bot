@@ -25,7 +25,7 @@ A full-stack web application that integrates a Gemini Pro-powered multilingual c
 
 | System-Implementation | 
 |-----------------------------|
-| ![System-Implementation](assets\System-Implementation.png) |
+| ![System-Implementation](assets/System-Implementation.png) |
 
 
 
