@@ -25,7 +25,7 @@ A full-stack web application that integrates a Gemini Pro-powered multilingual c
 
 | System-Implementation | 
 |-----------------------------|
-| ![System-Implementation](assets\images\Sys.png) |
+| ![System-Implementation](assets\System-Implementation.png) |
 
 
 
@@ -176,7 +176,7 @@ Open http://localhost:5000 in your browser.
 
 | User Interface | 
 |-----------------------------|
-| ![UI Screenshot](assets\images\UI.jpg) |
+| ![UI Screenshot](assets\images\UI.png) |
 
 ---
 
