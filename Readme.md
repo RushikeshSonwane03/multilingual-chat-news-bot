@@ -174,9 +174,26 @@ Open http://localhost:5000 in your browser.
 
 ## 📷 Screenshots
 
-| User Interface | 
-|-----------------------------|
-| ![UI Screenshot](assets/UI.png) |
+<table style="width:100%; border-collapse: collapse; text-align: center;">
+  <tr>
+    <th colspan="2" style="border: 1px solid #ccc; padding: 10px; background-color: #f2f2f2;">User Interface</th>
+  </tr>
+  <tr>
+    <td colspan="2" style="border: 1px solid #ccc; padding: 10px;">
+      <img src="assets/Output-1.png" alt="Output 1" style="max-width:100%; height:auto;" />
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ccc; padding: 10px;">
+      <img src="assets/Output-2.png" alt="Output 2" style="max-width:100%; height:auto;" />
+    </td>
+    <td style="border: 1px solid #ccc; padding: 10px;">
+      <img src="assets/Output-3.png" alt="Output 3" style="max-width:100%; height:auto;" />
+    </td>
+  </tr>
+</table>
+
+
 
 ---
 
