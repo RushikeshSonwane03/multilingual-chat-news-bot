@@ -13,7 +13,8 @@ NEWS_API_URL = "https://newsdata.io/api/1/news?apikey=" + NEWS_API_KEY
 
 def translate_text(text, target_lang):
     try:
-        if target_lang == 'en' or not text:
+        # if target_lang == 'en' or not text:   # Excuse translation for English(Original Language.)
+        if not text:   # Translate to the selected Language
             return text
 
         translated = GoogleTranslator(source='auto', target=target_lang).translate(text)
@@ -23,7 +24,7 @@ def translate_text(text, target_lang):
         return text  # fallback to original
 
 
-def fetch_top_news(language='hi', topic=None):
+def fetch_top_news(language='en', topic=None):
     try:
         # Build API parameters for category and country
         if not topic:
@@ -39,7 +40,7 @@ def fetch_top_news(language='hi', topic=None):
             print("API Error or bad request:", data)
             return []
 
-        articles = data.get("results", [])[:3]  # Fetch top 10 news only
+        articles = data.get("results", [])[:5]  # Fetch top n news only
 
         news_list = []
         print("translating")

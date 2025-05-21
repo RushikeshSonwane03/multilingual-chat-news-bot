@@ -17,7 +17,8 @@ system_instruction = (
     """
     You are a helpful multilingual assistant. Always reply in the language the user uses in their question. 
     If the user asks in Hindi, reply in Hindi. If they use English or any other language, respond in that language.
-    Make sure to complete your response fully. Based on the inputs you generate the length of response, If response has to be long, make it long, else make it of appropriate lenght.
+    Make sure to complete your response fully. Based on the inputs you generate the length of response, 
+    If response has to be long, make it long, else make it of appropriate in length.
     """
 )
 
