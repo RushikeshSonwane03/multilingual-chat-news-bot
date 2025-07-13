@@ -6,7 +6,7 @@ A full-stack web application that integrates a Gemini Pro-powered multilingual c
 
 ## 🚀 Features
 
-### 🤖 Multilingual Chatbot (Left Panel)
+### 🤖 Multilingual Chatbot (Panel)
 - Powered by **Google Gemini Pro** for natural language conversations.
 - Supports **voice input** in the user's selected language.
 - Translates non-Hindi inputs automatically.
