@@ -6,14 +6,14 @@ A full-stack web application that integrates a Gemini Pro-powered multilingual c
 
 ## 🚀 Features
 
-### 🤖 Multilingual Chatbot (Left Panel)
+### 🤖 Multilingual Chatbot (Left Half Panel)
 - Powered by **Google Gemini Pro** for natural language conversations.
 - Supports **voice input** in the user's selected language.
 - Translates non-Hindi inputs automatically.
 - Saves **chat history** with session titles in a **SQLite database**.
 - Allows switching between previous conversations.
 
-### 📰 Multilingual News Reader (Right Panel)
+### 📰 Multilingual News Reader (Right Half Panel)
 - Fetches **live trending news** using the **NewsData API**.
 - Supports news translation to **Hindi, Marathi, Tamil, Telugu, Urdu, Malayalam, Sanskrit**, and **English**.
 - Clickable headlines to expand and read full news.
